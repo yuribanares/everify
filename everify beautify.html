@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <style>
+      /* Bank of the Philippine Islands color palette */
+      :root {
+        --bpi-blue: #032B44;
+        --bpi-orange: #FFC107;
+        --bpi-white: #FFFFFF;
+      }
+      
+      body {
+        background-color: var(--bpi-white);
+        font-family: Arial, sans-serif;
+      }
+      
+      button {
+        background-color: var(--bpi-orange);
+        color: var(--bpi-white);
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: var(--bpi-blue);
+      }
+      
+      #response {
+        font-size: 14px;
+        font-family: monospace;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="bpi-logo.png" alt="Bank of the Philippine Islands Logo" width="100" height="50">
+      <button onClick="startLiveness();">Start Liveness</button>
+      <pre id="response"></pre>
+    </div>
+    <script src="https://liveness.everify.gov.ph/js/everify-liveness-sdk.min.js"></script>
+    <script>
+      function startLiveness() {
+        window.eKYC().start({
+          pubKey: "eyJpdiI6IlVGbkt3OHdXdCsxWFRDOWs0eDZYaHc9PSIsInZhbHVlIjoiWmpHVDJNcU9GTE1aTjdsMmd4ZzRjQT09IiwibWFjIjoiOWFiOTNlOGZlNTlkYTI2N2EzZTUyMTdhMWIyMDdmODI3N2ZiMWZkYzRjYzFhMDU4MDc2NGRmZmQ3YmVmODc4MyIsInRhZyI6IiJ9"
+        }).then((data) => {
+          const el = document.getElementById('response');
+          el.textContent = JSON.stringify(data, undefined, 2);
+        }).catch((err) => {
+          console.log('error', err);
+        });
+      }
+    </script>
+  </body>
+</html>
