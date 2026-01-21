@@ -43,7 +43,7 @@
     <script>
       function startLiveness() {
         window.eKYC().start({
-          pubKey: "eyJpdiI6IlVGbkt3OHdXdCsxWFRDOWs0eDZYaHc9PSIsInZhbHVlIjoiWmpHVDJNcU9GTE1aTjdsMmd4ZzRjQT09IiwibWFjIjoiOWFiOTNlOGZlNTlkYTI2N2EzZTUyMTdhMWIyMDdmODI3N2ZiMWZkYzRjYzFhMDU4MDc2NGRmZmQ3YmVmODc4MyIsInRhZyI6IiJ9"
+          pubKey: "eyJpdiI6IjdGbmU5RDNkVlk4bFR0UXYzSmRFZGc9PSIsInZhbHVlIjoiei9aamxRM2dZaGgyMEJQSEk5MWFadz09IiwibWFjIjoiYmE2YmZjZDQ3OWNiNDE4YmY1NGUwMDQ4NTE3M2I2YzdlNThlYmI0NzU3ODM4NjFiNmEzY2U0YzI0NzEyMjI4OCIsInRhZyI6IiJ9"
         }).then((data) => {
           const el = document.getElementById('response');
           el.textContent = JSON.stringify(data, undefined, 2);
