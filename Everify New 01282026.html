@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <div>
+      <button onClick="startLiveness();">Start Liveness</button>
+      <pre id="response"></pre>
+    </div>
+    <script src="https://liveness.everify.gov.ph/js/everify-liveness-sdk.min.js"></script>
+    <script>
+      function startLiveness() {
+        window.eKYC().start({
+          pubKey: "eyJpdiI6IjdGbmU5RDNkVlk4bFR0UXYzSmRFZGc9PSIsInZhbHVlIjoiei9aamxRM2dZaGgyMEJQSEk5MWFadz09IiwibWFjIjoiYmE2YmZjZDQ3OWNiNDE4YmY1NGUwMDQ4NTE3M2I2YzdlNThlYmI0NzU3ODM4NjFiNmEzY2U0YzI0NzEyMjI4OCIsInRhZyI6IiJ9"
+        }).then((data) => {
+          const el = document.getElementById('response');
+          el.textContent = JSON.stringify(data, undefined, 2);
+        }).catch((err) => {
+          console.log('error', err);
+        });
+      }
+    </script>
+  </body>
+</html>
